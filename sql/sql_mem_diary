@@ -1,0 +1,184 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 수요일-10월-12-2022   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table MEM_DIARY
+--------------------------------------------------------
+
+  CREATE TABLE "DIARY"."MEM_DIARY" 
+   (	"NO" VARCHAR2(10 BYTE), 
+	"LOGIN_MEM_ID" VARCHAR2(15 BYTE), 
+	"YEAR" VARCHAR2(15 BYTE), 
+	"MONTH" VARCHAR2(15 BYTE), 
+	"DAY" VARCHAR2(15 BYTE), 
+	"DAY2" VARCHAR2(15 BYTE), 
+	"WEATHER" VARCHAR2(15 BYTE), 
+	"TITLE" VARCHAR2(3000 BYTE), 
+	"CONTENTS" VARCHAR2(3000 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into DIARY.MEM_DIARY
+SET DEFINE OFF;
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('2','sjbang','2031','11','20','월','맑음','ㅇㅇ','                        
+                        안녕하세요 저는 방수진입니다
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇일기
+말
+버릇
+일기
+말
+버릇
+일기
+말
+버릇
+');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('3','sjbang','2031','10','20','토','비','ㅇㅇ','                        
+                        안녕하세요 저는 방수진입니다
+저는 26살입니다 언제 이렇게 나이를 먹었는지 참으로 말이 안됩니다
+26살이나 먹다니 이건 정말 믿을 수가 없군요
+27살이 3달밖에 안남았어요
+3달 뒤엔 2023년이네요 왜이렇게 시간이 빠를까요
+근데 앞으로 살날이 더 많이 남았어요
+충분히 많이 산거같은데 왜 이렇게 많이 남았을까요
+이제 피곤하구만 집가고싶당
+내일 경주가야해서 갈데를 알아봐야하는데 그것마저 귀찮아요
+나랑 놀아주는 친구가 있어서 얼마나 다행인지 모르겠어요
+밥먹고 맛집이랑 카페를 얼른 찾아봐야겠네요
+물론 친구가 다 찾아와줘서 안찾아봐도 되겠어요
+하지만 길거리음식은 내가 찾기로했으니 찾아야겠군요
+그것마저 귀찮네요 정말 큰일이에요
+안녕히계세요 그럼이만');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('42','sjbang','2022','10','17','월','맑음','양화대교','                        
+                        
+우리 집에는 매일 나 홀로 있었지
+아버지는 택시드라이버
+어디냐고 여쭤보면 항상 "양화대교"
+아침이면 머리맡에 놓인
+별사탕에 라면땅에
+새벽마다 퇴근하신 아버지
+주머니를 기다리던
+어린 날의 나를 기억하네 yeah
+엄마 아빠 두 누나
+나는 막둥이, 귀염둥이
+그 날의 나를 기억하네
+기억하네 yeah
+행복하자
+우리 행복하자
+아프지 말고 oh 아프지 말고
+행복하자 행복하자
+아프지 말고 그래 그래');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('43','sjbang','2022','10','17','월','맑음','새삥','                        
+                       
+ Ayy, who''s the best dresser
+반경 100m 누가 젤 튀어
+잘 되면 셀럽
+못 되면 평생 리셀러
+내 개성은 시대를 안 타 huh
+안 타 ''cause
+나는 새삥
+모든 게 다 새삥
+보세 옷을 걸쳐도 브랜드 묻는 DM이 와
+I''m too sexy 헌 집 주고 새집
+프리미엄이 붙어 두 배, 세 배, 네 배 yeah
+나는 새삥 11년째 freshman');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('44','sjbang','2022','10','17','월','맑음','새삥','                        
+                       
+ Ayy, who''s the best dresser
+반경 100m 누가 젤 튀어
+잘 되면 셀럽
+못 되면 평생 리셀러
+내 개성은 시대를 안 타 huh
+안 타 ''cause
+나는 새삥
+모든 게 다 새삥
+보세 옷을 걸쳐도 브랜드 묻는 DM이 와
+I''m too sexy 헌 집 주고 새집
+프리미엄이 붙어 두 배, 세 배, 네 배 yeah
+나는 새삥 11년째 freshman');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('4','sjbang','2031','10','20','금','맑음','ㅇ','                        
+                        안녕하세요');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('5','sjbang','2031','10','20','금','맑음','ㅇ','                        
+                        안녕하세요');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('6','sjbang','2032','11','19','월','맑음','ee',' 안녕하세요 감사합니다 내 거 다 돼');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('7','sjbang','2031','11','20','토','맑음','dfd','                        
+                        dfdf');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('8','sjbang','2031','11','20','토','맑음','dfd','                        
+      안녕하세용오오오옹');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('21','sujinmio','2022','9','29','목','맑음','집갑시다~~','안녕하세요 관리자님 
+오늘 하루도 수고했어요:)
+                        
+                        ');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('1','sjbang','2031','12','20','토','눈','dfs','                        
+                        ddfs');
+Insert into DIARY.MEM_DIARY (NO,LOGIN_MEM_ID,YEAR,MONTH,DAY,DAY2,WEATHER,TITLE,CONTENTS) values ('41','sjbang','2029','11','20','화','맑음','dddd',' 안녕하세요 말하는 일기장입니다 감사합니다');
+--------------------------------------------------------
+--  DDL for Index PK_NO
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "DIARY"."PK_NO" ON "DIARY"."MEM_DIARY" ("NO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table MEM_DIARY
+--------------------------------------------------------
+
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("NO" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("LOGIN_MEM_ID" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("YEAR" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("MONTH" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("DAY" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("DAY2" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("WEATHER" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("TITLE" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" MODIFY ("CONTENTS" NOT NULL ENABLE);
+  ALTER TABLE "DIARY"."MEM_DIARY" ADD CONSTRAINT "PK_NO" PRIMARY KEY ("NO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table MEM_DIARY
+--------------------------------------------------------
+
+  ALTER TABLE "DIARY"."MEM_DIARY" ADD CONSTRAINT "FR_LOGIN_MEM_ID" FOREIGN KEY ("LOGIN_MEM_ID")
+	  REFERENCES "DIARY"."MEM_LIST" ("MEM_ID") ENABLE;
