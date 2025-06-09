@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+
+<html>
+	<head>
+		<title>Today Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+		<script>
+			function send(){
+				document.getElementById("fm").submit()
+			}
+	
+		</script>
+	</head>
+	<body class="is-preload">
+
+        <!-- Wrapper -->
+
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<div class="content">
+							<div class="inner">
+								<h1><a href = '../main_logout/' style="text-decoration:none">말하는 다이어리</a></h1>
+								<div class="fields">
+                                    <div class="field">
+										
+										{% if sMem_id == None %}
+										<form id="fm" method="post" action="/diaryapp/main_login/">	
+										{% csrf_token %}
+                                        <label for="name">신원</label>
+                                        <input type="text" placeholder="신원" name="mem_id" value="">
+                                    </div>
+                                    <div class="field">
+                                        <label for="email">암호</label>
+                                        <input type="password" placeholder="암호" name="mem_pass" value="">
+                                    </div>
+								</form>
+								<nav>
+									<br>
+									<button type="button" onclick="send()">들어가기</button>
+								</nav>
+                                </div>
+							</div>
+						</div>
+
+						<nav>
+							<ul>
+								<li><a href="../signup/">함께하기</a></li>
+								
+							</ul>
+						</nav>
+					</header>
+
+                <!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+			{% endif %}
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>

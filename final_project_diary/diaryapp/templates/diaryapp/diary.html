@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>말하는 일기장</title>
+        <link rel="stylesheet" type="text/css"
+        href="https://getbootstrap.kr/docs/5.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+
+        <style>
+            .page-link {
+              color: #ffffff; 
+              background-color: #473e46;
+              border-color: #444;
+            }
+            
+            .page-item.active .page-link {
+             z-index: 1;
+             color: #000;
+             font-weight:bold;
+             background-color: #333;
+              border-color: #444;
+             
+            }
+            
+            .page-link:focus, .page-link:hover {
+              color: #fffafa;
+              background-color: #222; 
+              border-color: #444;
+            }
+            </style>
+
+        <script>
+            // 저장버튼 클릭시 호출되는 함수
+            function send(){
+                // popup 창 띄우기 (경고)
+                //html 문서중에 fm 라는 속성을 가지는 id 값을 가져와라 
+                //alert("검색 시작..")
+                fm = document.getElementById('fm'); // submit() : fm의 action에 있는 링크로 이동시켜라 
+                fm.action = '/diaryapp/diary/';
+                fm.submit();
+            }
+        </script>
+	</head>
+	<body class="is-preload">
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <article id="DIARY">
+                <h2 class="major"><a href = '../back_main/' style="text-decoration:none">말하는 일기장</a></h2>
+                
+                
+            </article>
+            <form name = 'fm' id='fm' method = 'POST' action = '#'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!-->
+                <input type = 'hidden' name='now_page' value={{now_page}}>
+                    {% csrf_token %}
+                    <select name = "sel" style = 'font-size:17px;'>
+                        <option value ='year' {{sel_year}}>년도</option>
+                        <option value ='day2' {{sel_day2}}>요일</option>
+                        <option value ='weather' {{sel_weather}}>날씨</option>
+                        <option value ='title' {{sel_title}}>제목</option> <!-- / 부터 시작해도된당-->
+                    </select>
+                </br>
+                    <input type ='text' name = 'sh' value = '{{sh}}' style = 'font-size:16px;'>
+                </br>
+                    <center><input type="button" onclick="send();" value="검색" style = 'font-size:16px;'>
+                        &nbsp&nbsp&nbsp
+                            <input type="button" onclick="location.href='/diaryapp/frequency'" value="나의 말버릇" style = 'font-size:16px;'></center>
+            </form>
+
+            <div class = 'container text-center' style = 'width:80%;'>
+                <div class = 'row'>
+                    <div class ='col'>
+                        
+                        <table border='1' width = '100%'; style = 'font-size:17px;'>   
+                                <!-- 테이블 넣기 -->
+                                <div class = 'container text-center' style = 'width:200%;'>
+                                    <div class = 'row'>
+                                        <div class ='col'>
+                                            <table border='1' width = '100%'; style = 'font-size:17px;'>
+                                                
+                                                <tr> <!-- tr: 행 하나 만들기-->
+                                                        <th><span style = 'color : white'>연도</span></th>
+                                                        <th><span style = 'color : white'>월</span></th>
+                                                        <th><span style = 'color : white'>일</span></th>
+                                                        <th><span style = 'color : white'>요일</span></th>
+                                                        <th><span style = 'color : white'>날씨</span></th>
+                                                        <th><span style = 'color : white'>제목</span></th>
+                                                        
+                                                </tr>
+                                                {% for l in info %}<!--d는 df_list에 있는 딕셔너리 값-->
+                                                <tr>
+                                                        <td>{{l.year}}</td>
+                                                        <td>{{l.month}}</td>
+                                                        <td>{{l.day}}</td>
+                                                        <td>{{l.day2}}</td>
+                                                        <td>{{l.weather}}</td>
+                                                        {% comment %} 항상 pk로 값 가져와야 한다 mem_diary의 pk는 no 이므로
+                                                                    diary_list.py에 전체 리스트 조회시 no까지 불러와야함 {% endcomment %}
+                                                        <td><a href="/diaryapp/diary_view?no={{l.no}}">{{l.title}}</a></td>
+                                                </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--페이지 처리넣기-->
+                                <div class='container text-center'>
+                                    <div class='now'>
+                                        <div class='col'>
+                                            <p>
+                                                <ul class='pagination' style='justify-content:center; font-size:15px;'>
+                                                    <!---이전버튼 처리 시작-->
+                                                    <!--
+                                                        'oracle:cart_list_page' 네임스페이스 가능
+                                                        <네임스페이스> :  이름으로 찾아가는 기능-->
+                                                    {% if is_prev %}
+                                                    <li class='page-item'>
+                                                        <a class ='page-link'
+                                                            href='{% url "diaryapp:diary" %}?page={{start_page | add:"-10"}}'>
+                                                                <span aria-hidden='true'>
+                                                            [이전]
+                                                        </a>
+                                                    </li>
+                                                    {% endif %}
+                                                    <!---이전버튼 처리 끝-->
+                                                    <!---페이지처리 처리 시작-->
+                                                    {% for i in page_range %}
+                                                    <li class='page-item'>
+                                                        <a class ='page-link'
+                                                            href='{% url "diaryapp:diary" %}?page={{i}}&sel={{sel}}&sh={{sh}}'>{{i}}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                    <!---다음버튼 처리 시작-->
+                                                    {% if is_next %}
+                                                    <li class='page-item'>
+                                                        <a class ='page-link'
+                                                            href='{% url "diaryapp:diary" %}?page={{start_page | add:"10"}}&sel={{sel}}&sh={{sh}}'>
+                                                                <span aria-hidden='true'>
+                                                            [다음]
+                                                        </a>
+                                                    </li>
+                                                    {% endif %}
+                                                    <!---다음버튼 처리 끝-->
+                                                </ul>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        <!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 우리는 일석삼조.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+        <!-- bootstrap javascript 코드 추가.. -->    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- 이미지 슬라이딩은 아래 링크를 추가하여 사용하면 됨.. 
+        위에 cdn 스크립트는 지원이 안되는 듯..-->
+        <script src="https://getbootstrap.kr/docs/5.0/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+                crossorigin="anonymous"></script>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>
+

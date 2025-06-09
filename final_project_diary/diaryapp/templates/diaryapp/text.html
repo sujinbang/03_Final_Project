@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>Today Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+
+        <script>
+            // 저장버튼 클릭시 호출되는 함수
+            function send(){
+                // popup 창 띄우기 (경고)
+                //alert('등록이 완료 되었습니다.');
+                //html 문서중에 fm 라는 속성을 가지는 id 값을 가져와라 
+                document.getElementById('fm').submit(); // submit() : fm의 action에 있는 링크로 이동시켜라 
+            }
+        </script>
+	</head>
+	<body class="is-preload">
+        <!-- Wrapper -->
+
+        <div id="wrapper">
+            
+
+            <article id="DIARY">
+                <h2 class="major"><a href = '../back_main/' style="text-decoration:none">말하는 일기장</a></h2>
+                <p>* 모든 내용은 꼭 추가 하셔야 합니다</p>
+                <form name = 'fm' id='fm' method = 'POST' action = '/diaryapp/insert_diary/'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!-->
+                {% comment %} <form method="post" action="#"> {% endcomment %}
+                <div class="fields">
+                    <div class="field">
+                        <label for="substance">내용</label>
+                        
+                        <textarea name="contents" cols="40" rows="10" value={{contents}}>
+                        {% comment %} <input type = 'textarea' name='contents' value={{contents}} > {% endcomment %}
+                        </textarea>
+                        
+                    </div>
+
+                    <div class="field">
+                        <label for="email">제목</label>
+                        <input type="text" name="title" id={{title}} >
+                    </div>
+                        <div class="field quarter">
+                                {% comment %} <input type = 'hidden' name='now_page' value={{now_page}}> {% endcomment %}
+                                {% csrf_token %}
+                            <select name = "sel_y" >
+                                <option value ='year_name' {{sel_name}}>년</option>
+                                <option value ='2022' {{year}}>2022</option>
+                                <option value ='2023' {{year}}>2023</option>
+                                <option value ='2024' {{year}}>2024</option>
+                                <option value ='2025' {{year}}>2025</option>
+                                <option value ='2026' {{year}}>2026</option>
+                                <option value ='2027' {{year}}>2027</option>
+                                <option value ='2028' {{year}}>2028</option>
+                                <option value ='2029' {{year}}>2029</option>
+                                <option value ='2030' {{year}}>2030</option>
+                                <option value ='2031' {{year}}>2031</option>
+                                <option value ='2032' {{year}}>2032</option>
+                            </select>
+                            </form>
+                        </div>
+                        <div class="field quarter">
+                            {% comment %} <form name = 'fm' id='fm' method = 'POST' action = '#'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!--> {% endcomment %}
+                                {% comment %} <input type = 'hidden' name='now_page' value={{now_page}}> {% endcomment %}
+                                {% csrf_token %}
+                            <select name = "sel_m" >
+                                <option value ='month_name' {{sel_name}}>월</option>
+                                <option value ='1' {{month}}>1</option>
+                                <option value ='2' {{month}}>2</option>
+                                <option value ='3' {{month}}>3</option>
+                                <option value ='4' {{month}}>4</option>
+                                <option value ='5' {{month}}>5</option>
+                                <option value ='6' {{month}}>6</option>
+                                <option value ='7' {{month}}>7</option>
+                                <option value ='8' {{month}}>8</option>
+                                <option value ='9' {{month}}>9</option>
+                                <option value ='10' {{month}}>10</option>
+                                <option value ='11' {{month}}>11</option>
+                                <option value ='12' {{month}}>12</option>
+                            </select>
+                            </form>
+                        </div>
+                        <div class="field quarter">
+                            {% comment %} <form name = 'fm' id='fm' method = 'POST' action = '#'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!--> {% endcomment %}
+                                {% comment %} <input type = 'hidden' name='now_page' value={{now_page}}> {% endcomment %}
+                                {% csrf_token %}
+                            <select name = "sel_d" >
+                                <option value ='day_name' {{sel_name}}>일</option>
+                                <option value ='1' {{day}}>1</option>
+                                <option value ='2' {{day}}>2</option>
+                                <option value ='3' {{day}}>3</option>
+                                <option value ='4' {{day}}>4</option>
+                                <option value ='5' {{day}}>5</option>
+                                <option value ='6' {{day}}>6</option>
+                                <option value ='7' {{day}}>7</option>
+                                <option value ='8' {{day}}>8</option>
+                                <option value ='9' {{day}}>9</option>
+                                <option value ='10' {{day}}>10</option>
+                                <option value ='11' {{day}}>11</option>
+                                <option value ='12' {{day}}>12</option>
+                                <option value ='13' {{day}}>13</option>
+                                <option value ='14' {{day}}>14</option>
+                                <option value ='15' {{day}}>15</option>
+                                <option value ='16' {{day}}>16</option>
+                                <option value ='17' {{day}}>17</option>
+                                <option value ='18' {{day}}>18</option>
+                                <option value ='19' {{day}}>19</option>
+                                <option value ='20' {{day}}>20</option>
+                                <option value ='21' {{day}}>21</option>
+                                <option value ='22' {{day}}>22</option>
+                                <option value ='23' {{day}}>23</option>
+                                <option value ='24' {{day}}>24</option>
+                                <option value ='25' {{day}}>25</option>
+                                <option value ='26' {{day}}>26</option>
+                                <option value ='27' {{day}}>27</option>
+                                <option value ='28' {{day}}>28</option>
+                                <option value ='29' {{day}}>29</option>
+                                <option value ='30' {{day}}>30</option>
+                                <option value ='31' {{day}}>31</option>
+                            </select>
+                            </form>
+                        </div>
+                        <div class="field quarter">
+                            {% comment %} <form name = 'fm' id='fm' method = 'POST' action = '#'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!--> {% endcomment %}
+                                {% comment %} <input type = 'hidden' name='now_page' value={{now_page}}> {% endcomment %}
+                                {% csrf_token %}
+                            <select name = "sel_d2" >
+                                <option value ='day2_name' {{sel_name}}>요일</option>
+                                <option value ='월' {{day}}>월</option>
+                                <option value ='화' {{day}}>화</option>
+                                <option value ='수' {{day}}>수</option>
+                                <option value ='목' {{day}}>목</option>
+                                <option value ='금' {{day}}>금</option>
+                                <option value ='토' {{day}}>토</option>
+                                <option value ='일' {{day}}>일</option>
+                            </select>
+                            </form>
+                        </div>
+                        <div class="field">
+                            {% comment %} <form name = 'fm' id='fm' method = 'POST' action = '#'> <!-- post 방식으로 값 전달 주소값 슬래쉬!!--> {% endcomment %}
+                                {% comment %} <input type = 'hidden' name='now_page' value={{now_page}}> {% endcomment %}
+                                {% csrf_token %}
+                            <select name = "sel_w" >
+                                <option value ='weather_name' {{sel_name}}>날씨</option>
+                                <option value ='맑음' {{weather}}>맑음</option>
+                                <option value ='흐림' {{weather}}>흐림</option>
+                                <option value ='비' {{weather}}>비</option>
+                                <option value ='눈' {{weather}}>눈</option>
+                            </select>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <ul class="actions">
+                        <li><input type="button" value="검사하기" class="primary"></li>
+                        <li><input type="button" value="입력(분석)" onClick=send()></li>
+                    </ul>
+				</form>
+            
+            </article>
+
+
+
+
+        <!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 우리는 일석삼조.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>
+

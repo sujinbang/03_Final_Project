@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>말하는 일기장</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+	</head>
+	<body class="is-preload">
+
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+                                <h1><a href = '../back_main/' style="text-decoration:none">말하는 일기장</a></h1>
+                                <br></br>
+                                <h2>제목</h2>
+                                <p>{{title}}</p>
+                                <h2>내용</h2>
+								<p> {{contents}} <br>
+								</p>
+							</div>
+						</div>
+
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+                    </div>
+
+                    				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy;우리는 일석삼조.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>

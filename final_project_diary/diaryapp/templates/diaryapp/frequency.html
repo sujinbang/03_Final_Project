@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>말하는 일기장</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1><a href = '../back_main/' style="text-decoration:none">말하는 일기장</a></h1>
+								<p>안녕하세요 오늘의 일기입니다 <br>
+								   당신이 지금까지 쓴 일기속 단어 빈도 입니다.<br>
+                                   당신의 말버릇을 확인해보세요. </p>
+                                   <p align = 'center'>
+                                    <img src = "{% static 'diaryapp/images/result.png' %}" style="max-width:40%; height:auto;">
+									<br>
+									
+									<p></p>
+                                </p>
+							</div>
+							
+						</div>
+						<input type="button" onclick="location.href='/diaryapp/diary'" value="목록보기">
+
+					</header>
+
+				
+                    </div>
+
+                    				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy;우리는 일석삼조.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>

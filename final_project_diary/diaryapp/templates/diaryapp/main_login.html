@@ -1,0 +1,83 @@
+
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>말하는 일기장</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{% comment %} <link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}"> {% endcomment %}
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+		{% if result == 'Clouds' %}
+        <link rel="stylesheet" href="{% static 'diaryapp/assets/css/main_clouds.css' %}">
+    	{% elif result == 'Clear' %}   
+        <link rel="stylesheet" href="{% static 'diaryapp/assets/css/main_clear.css' %}">
+    	{% elif result == 'Rain' %}
+        <link rel="stylesheet" href="{% static 'diaryapp/assets/css/main_rain.css' %}"> 
+    	{% elif result == 'Snow' %}
+        <link rel="stylesheet" href="{% static 'diaryapp/assets/css/main_snow.css' %}">
+    	{% else %}
+        <p>관계자에게 문의부탁</p>
+    	{% endif %}
+		
+		<script>
+		function logout(){
+            {% comment %} alert("오늘 하루도 수고했어요"); {% endcomment %}
+            location.href = "/diaryapp/logout/"
+        }
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>말하는 일기장</h1>
+								<p>안녕하세요 오늘의 일기입니다 <br>
+								   오늘에 대한 여러분의 느낌을 자유롭게 표현해보세요.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="/diaryapp/logout/ " onclick="logout()">나가기</a></li>
+								{% comment %} <li><a href="/diaryapp/main_logout">Logout</a></li> {% endcomment %}
+								<li><a href="/diaryapp/text">글쓰기</a></li>
+								<li><a href="/diaryapp/voice">말하기</a></li>
+								<li><a href="/diaryapp/diary">나의 일기장</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+
+                    				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 우리는 일석삼조.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>

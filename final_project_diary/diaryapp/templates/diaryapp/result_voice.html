@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>Today Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+	</head>
+	<body class="is-preload">
+        <!-- Wrapper -->
+
+        <div id="wrapper">
+
+            <!-- Login -->
+            <article id="VOICE">
+                <h2 class="major">result</h2>
+                <p>분석 결과 입니다.</p>
+				<P>{{result}}</p>
+            </article>
+			<ul class="actions">
+				<li><input type="button" onclick="location.href='/diaryapp/speak'" value="음성 듣기"></li>
+			</ul>
+			
+
+        <!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Home : <a href="/diaryapp/back_main">Today Diary</a></p>
+				</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>

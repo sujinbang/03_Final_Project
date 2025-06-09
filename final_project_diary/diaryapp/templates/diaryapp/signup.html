@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load static %}
+<html>
+	<head>
+		<title>Today Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'diaryapp/assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'diaryapp/assets/css/noscript.css' %}"></noscript>
+		<script>
+			function send(){
+				
+				document.getElementById("ms")
+				alert("우리와 함께 하시겠습니까?");
+				document.getElementById("ms").submit()
+			}
+	
+			function logout(){
+				alert("들어가기로 이동");
+				location.href = "/diaryapp/login/"
+			}
+		</script>
+
+		<script>
+			function check_pw(){
+	 
+				var pw = document.getElementById('pw').value;
+				var SC = ["!","@","#","$","%"];
+				var check_SC = 0;
+	 
+				if(pw.length < 6 || pw.length>16){
+					window.alert('암호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+					document.getElementById('pw').value='';
+				}
+				for(var i=0;i<SC.length;i++){
+					if(pw.indexOf(SC[i]) != -1){
+						check_SC = 1;
+					}
+				}
+				if(check_SC == 0){
+					window.alert('!,@,#,$,% 의 특수문자를 포함해 주세요.')
+					document.getElementById('pw').value='';
+				}
+				if(document.getElementById('pw').value !='' && document.getElementById('pw2').value!=''){
+					if(document.getElementById('pw').value==document.getElementById('pw2').value){
+						document.getElementById('check').innerHTML='암호가 일치합니다.'
+						document.getElementById('check').style.color='white';
+					}
+					else{
+						document.getElementById('check').innerHTML='암호가 일치하지 않습니다.';
+						document.getElementById('check').style.color='white';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body class="is-preload">
+        <!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="content">
+							<div class="inner">
+								<h1><a href = '../main_logout/' style="text-decoration:none">말하는 일기장</a></h1>
+								<div class="fields">
+                                    <div class="field">
+										<form id="ms" method="post" action="/diaryapp/insert_mem/">
+												{% csrf_token %}
+												<label for="name">신원</label>
+												<input type="text" placeholder="신원" name="id" value="">
+                                    		</div>
+											<div class="field">
+												<label for="password">암호</label>
+												<input type="password" placeholder="암호" id="pw"  name="pass" value="" onchange="check_pw()">
+											</div>
+											<div class="field">
+												<label for="password">암호확인</label>
+												<input type="password" placeholder="암호확인" id="pw2" onchange="check_pw()"><span id="check"></span>
+											</div>
+
+											<div class="field">
+												<label for="email">전자우편</label>
+												<input type="text" placeholder="전자우편 주소" name="email" value="" >
+											</div>
+											<br></br>
+											<div class="field">
+												<td>
+													<td>성별을 알려주세요</td>&nbsp&nbsp&nbsp
+													<input type="radio" id="genM" name="gender" value="남" checked="checked"> <!-- 최초에 기본 선택 : 남자-->
+													<label for="genM">남</label>
+
+													<input type="radio" id="genF" name="gender" value="여"> <!-- check된 값이 넘어간다-->
+													<label for="genF">여</label>
+													<br></br>
+												</td>
+											</div>
+													<td>나이를 알려주세요</td>&nbsp&nbsp&nbsp
+													<input type="radio" id="age10" name="age" value="10" checked="checked"><label for="age10">10대</label>
+													&nbsp
+													<input type="radio" id="age20" name="age" value="20"><label for="age20">20대</label>
+													
+													&nbsp
+													<input type="radio" id="age30" name="age" value="30"><label for="age30">30대</label>
+													
+													&nbsp
+													<input type="radio" id="age40" name="age" value="40"><label for="age40">40대이상</label>
+													
+													<br></br>
+											</tr>
+										</form>
+                                	</div>
+								</div>
+							</div>
+						<div>
+						<nav>
+								<button type="button" onclick="send()">함께하기 완료</button>
+						</nav>
+					</div>
+					</header>
+
+                    				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'diaryapp/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/util.js' %}"></script>
+			<script src="{% static 'diaryapp/assets/js/main.js' %}"></script>
+
+    </body>
