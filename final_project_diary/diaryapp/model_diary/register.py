@@ -15,7 +15,7 @@ def getConnection() :
     # 오라클 연결하기
     dsn = ora.makedsn('localhost', 1521, service_name='orcl')
     # 오라클 접속하기
-    conn = ora.connect(user='diary', password='dbdb', dsn=dsn)
+    conn = ora.connect(user='c##diary', password='dbdb', dsn=dsn)
     return conn
 
 # 커서받기
